@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from faker import Factory
 from random import choice
 from .models import Book, GENRES
@@ -27,7 +29,7 @@ def fake_book(locale="en_US"):
           "w ciemności"]
 
     isbn = fake.ean13()
-    author = "{} {}".format(fake.first_name(), fake.last_name())
+    author = "{} {}".format(fake.first_name().encode('utf-8'), fake.last_name().encode('utf-8'))
     publisher = fake.company()
     genre = choice(GENRES)[0]
     b = Book()
